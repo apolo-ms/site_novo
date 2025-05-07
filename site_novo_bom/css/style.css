@@ -8,6 +8,9 @@
 body{
     background-color: antiquewhite;
 }
+section{
+    scroll-margin-top: 90px;
+}
 header{
     background-color: #ffdeb5;
     padding: 15px 15px 15px 15px;
@@ -132,4 +135,10 @@ header .conteiner{
     .baner{
         font-size: 1em;
     }
+}
+
+div .rodape{
+    text-align: center;
+    padding: 15px 15px;
+    background-color: #ffdeb5;
 }
