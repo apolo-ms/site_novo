@@ -142,15 +142,45 @@ div .rodape{
     padding: 15px 15px;
     background-color: #ffdeb5;
 }
-#funcionalidades. conteiner{
+#funcionalidades .conteiner{
     display:grid;
-    grid-tamplate-columns:repeat(auto-fit,minimax(200px, 1fr));
+    grid-template-columns:repeat(auto-fit,minimax(200px, 1fr));
     gap:20px;
-    text-alinig:center;
+    text-align:center;
     padding:50px 0;
 }
 #funcionalidades .item{
-    backgraund-color:;
+    background-color:antiquewhite;
     border:1px solid;
     border-radius:10px;
+    padding: 20px;
+    box-shadow: 0 4px  8px gray;
+    transition: transform 0.2s ease,box-sadow 0.2 ease;
+    cursor: pointer;
+}
+#funcionalidades .item:hover{
+    transform: translatey(-5px);
+    box-shadow: 0 8px 16px gray;
+}
+#funcionalidades .item:active{
+    transform: scale(0.98);
+}
+#funcionalidades .item p{
+    margin-top: 15px;
+    font-size: 0.95em ;
+    
+}
+.itemp{
+    text-align: center;
+    padding-left:50px ;
+    padding-right: 50px;
+}
+.centro{
+    text-align: center;
+}
+#funcionalidades{
+    width:100%;
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 10px;
 }
