@@ -142,3 +142,15 @@ div .rodape{
     padding: 15px 15px;
     background-color: #ffdeb5;
 }
+#funcionalidades. conteiner{
+    display:grid;
+    grid-tamplate-columns:repeat(auto-fit,minimax(200px, 1fr));
+    gap:20px;
+    text-alinig:center;
+    padding:50px 0;
+}
+#funcionalidades .item{
+    backgraund-color:;
+    border:1px solid;
+    border-radius:10px;
+}
