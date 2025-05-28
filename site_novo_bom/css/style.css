@@ -184,3 +184,52 @@ div .rodape{
     height: auto;
     margin-bottom: 10px;
 }
+.card{
+    color: aliceblue;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba( gray);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+
+}
+.card h3{
+    margin-top: 0;
+
+}
+.bnt{
+    display:inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: blue;
+    color: aliceblue;
+    text-decoration: none;
+    border-radius:6px ;
+    cursor: pointer;
+}
+.modal{
+    position: fixed;
+    top: 0;
+    left:  0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(rgb(54, 54, 54), rgb(54, 54, 54), rgb(54, 54, 54));
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+
+}
+.modal:target{
+    display: flex;
+
+}
+.modal-content{
+    background-color: aliceblue;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 400px;
+
+    
+}
