@@ -212,6 +212,7 @@ div .rodape{
     position: fixed;
     top: 0;
     left:  0;
+    right: 0;
     width: 100vw;
     height: 100vh;
     background-color: rgba(rgb(54, 54, 54), rgb(54, 54, 54), rgb(54, 54, 54));
@@ -230,6 +231,26 @@ div .rodape{
     padding: 30px;
     border-radius: 10px;
     max-width: 400px;
+    color: black;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
 
     
+}
+.close-bnt{
+    margin-top: 20px;
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: red;
+    color: aliceblue;
+    border-radius: 6px;
+    text-decoration: none;
+}
+.modal{
+    background: rgba(141, 139, 139,0.5) ;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgb(0,0,0);
+    margin: auto;    
+    text-align: center; 
 }
