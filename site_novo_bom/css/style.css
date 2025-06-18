@@ -12,11 +12,12 @@ section{
     scroll-margin-top: 90px;
 }
 header{
-    background-color: #ffdeb5;
+    background-color: #ffe4c4;
     padding: 15px 15px 15px 15px;
     width: 100%;
     top: 0;
     position: fixed;
+    z-index: 2000;
 }
 nav ul{
     list-style: none;
@@ -56,7 +57,7 @@ header .conteiner{
 }
 #sobre{
     padding: 35px;
-    background-color: rgb(252, 239, 223);
+    background-color: antiquewhite;
 
 }
 .sobre-conteiner{
@@ -125,64 +126,73 @@ header .conteiner{
     margin: auto;
     padding: 10px 10px 10px 10px;
 }
-@media(max-width:479px){
+@media(max-width:510px){
     .baner{
         font-size: 1.3em;
     }
 
 }
-@media(max-width:410px){
+@media(max-width:440px){
     .baner{
         font-size: 1em;
     }
 }
+@media(max-width:157px){
+    .baner{
+        font-size: 0.7em;
+    }
+}
 
 div .rodape{
+    
     text-align: center;
     padding: 15px 15px;
-    background-color: #ffdeb5;
-}
-#funcionalidades .conteiner{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minimax(200px, 1fr));
-    gap:20px;
-    text-align:center;
-    padding:50px 0;
-}
-#funcionalidades .item{
-    background-color:antiquewhite;
-    border:1px solid;
-    border-radius:10px;
-    padding: 20px;
-    box-shadow: 0 4px  8px gray;
-    transition: transform 0.2s ease,box-sadow 0.2 ease;
-    cursor: pointer;
-}
-#funcionalidades .item:hover{
-    transform: translatey(-5px);
-    box-shadow: 0 8px 16px gray;
-}
-#funcionalidades .item:active{
-    transform: scale(0.98);
-}
-#funcionalidades .item p{
-    margin-top: 15px;
-    font-size: 0.95em ;
+    background-color: rgb(255, 232, 203);
     
 }
-.itemp{
-    text-align: center;
-    padding-left:50px ;
-    padding-right: 50px;
+
+#acao .container {
+    display: grid; /* Ativa o layout em grade (grid) */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    /* Cria colunas que se ajustam automaticamente ao tamanho da tela.
+       Cada coluna terá no mínimo 200px e ocupará uma fração igual (1fr) do espaço disponível. */
+    gap: 20px; /* Espaço entre os itens do grid */
+    text-align: center; /* Centraliza o texto dentro de cada item */
+    padding: 50px 0; /* Espaçamento acima e abaixo do container */
 }
-.centro{
-    text-align: center;
+
+#acao .item {
+    background-color: white; /* Fundo branco para o card */
+    border: 1px solid #ddd; /* Borda fina e cinza clara */
+    border-radius: 10px; /* Bordas arredondadas */
+    padding: 20px; /* Espaçamento interno */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave ao redor */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; 
+    /* Transição suave ao passar o mouse (hover ou active) */
+    cursor: pointer; /* Muda o cursor para a “mãozinha” indicando que é clicável */
 }
-#funcionalidades{
-    width:100%;
-    max-width: 150px;
-    height: auto;
-    margin-bottom: 10px;
+
+#acao .item:hover {
+    transform: translateY(-5px); /* Move o card levemente para cima */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra mais destacada ao passar o mouse */
+}
+
+#acao .item:active {
+    transform: scale(0.98); /* Reduz levemente o tamanho do card ao clicar */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* Sombra mais suave ao clicar */
+}
+
+#acao .item p {
+    margin-top: 15px; /* Espaço acima do parágrafo */
+    font-size: 1.2em; /* Tamanho da fonte um pouco menor que o padrão */
+    color: #4d3f72; /* Cor do texto (roxo escuro) */
+}
+
+#acao .imagem img {
+    width: 100%; /* Imagem ocupa toda a largura do container pai */
+    max-width: 150px; /* Mas nunca ultrapassa 150px de largura */
+    height: auto; /* Mantém a proporção original da imagem */
+    margin-bottom: 10px; /* Espaço abaixo da imagem */
 }
 .card{
     color: aliceblue;
@@ -253,4 +263,7 @@ div .rodape{
     box-shadow: 0 4px 10px rgb(0,0,0);
     margin: auto;    
     text-align: center; 
+}
+.centro{
+    text-align: center;
 }
