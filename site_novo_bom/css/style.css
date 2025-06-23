@@ -150,49 +150,51 @@ div .rodape{
     background-color: rgb(255, 232, 203);
     
 }
+#funcao .centro{
+    margin-left: 20px;
+}
 
-#acao .container {
-    display: grid; /* Ativa o layout em grade (grid) */
+#funcao .container {
+    display: grid; 
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
-    /* Cria colunas que se ajustam automaticamente ao tamanho da tela.
-       Cada coluna terá no mínimo 200px e ocupará uma fração igual (1fr) do espaço disponível. */
-    gap: 20px; /* Espaço entre os itens do grid */
-    text-align: center; /* Centraliza o texto dentro de cada item */
-    padding: 50px 0; /* Espaçamento acima e abaixo do container */
+    gap: 20px; 
+    text-align: center; 
+    padding: 50px 0; 
+    margin: 15px;
 }
 
-#acao .item {
-    background-color: white; /* Fundo branco para o card */
-    border: 1px solid #ddd; /* Borda fina e cinza clara */
-    border-radius: 10px; /* Bordas arredondadas */
-    padding: 20px; /* Espaçamento interno */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave ao redor */
+#funcao .item {
+    background-color: white; 
+    border: 1px solid #ddd;
+    border-radius: 10px; 
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     transition: transform 0.2s ease, box-shadow 0.2s ease; 
-    /* Transição suave ao passar o mouse (hover ou active) */
-    cursor: pointer; /* Muda o cursor para a “mãozinha” indicando que é clicável */
+    
+    cursor: pointer; 
 }
 
-#acao .item:hover {
-    transform: translateY(-5px); /* Move o card levemente para cima */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra mais destacada ao passar o mouse */
+#funcao .item:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-#acao .item:active {
-    transform: scale(0.98); /* Reduz levemente o tamanho do card ao clicar */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* Sombra mais suave ao clicar */
+#funcao .item:active {
+    transform: scale(0.98); 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); 
 }
 
-#acao .item p {
-    margin-top: 15px; /* Espaço acima do parágrafo */
-    font-size: 1.2em; /* Tamanho da fonte um pouco menor que o padrão */
-    color: #4d3f72; /* Cor do texto (roxo escuro) */
+#funcao .item p {
+    margin-top: 15px; 
+    font-size: 1.2em; 
+    color: #4d3f72; 
 }
 
-#acao .imagem img {
-    width: 100%; /* Imagem ocupa toda a largura do container pai */
-    max-width: 150px; /* Mas nunca ultrapassa 150px de largura */
-    height: auto; /* Mantém a proporção original da imagem */
-    margin-bottom: 10px; /* Espaço abaixo da imagem */
+#funcao .imagem img {
+    width: 100%;
+    max-width: 150px; 
+    height: auto; 
+    margin-bottom: 10px; 
 }
 .card{
     color: aliceblue;
@@ -217,35 +219,61 @@ div .rodape{
     text-decoration: none;
     border-radius:6px ;
     cursor: pointer;
+    
 }
 .modal{
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin: auto;    
+    text-align: justify;   
+
+}
+.modal{
+    margin-top: 50px;
     position: fixed;
     top: 0;
-    left:  0;
+    left: 0;
     right: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(rgb(54, 54, 54), rgb(54, 54, 54), rgb(54, 54, 54));
+    background: rgba(0, 0, 0, 0.6);
     display: none;
     justify-content: center;
     align-items: center;
-
-
 }
 .modal:target{
     display: flex;
 
 }
 .modal-content{
-    background-color: aliceblue;
+    max-height: 90vh;
+    overflow-y: auto; 
+    background: rgb(22, 20, 20);
     padding: 30px;
     border-radius: 10px;
-    max-width: 400px;
-    color: black;
-    text-align: center;
+    max-width: 600px;
+    text-align: justify;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
 
     
+}
+.modal-content h3{
+     margin-top: 2%;
+    font-size: 1.1rem;
+    margin-bottom: 2%;
+}
+@media (max-width:500){
+    section{
+        scroll-margin-top: 200px;
+    }
+    .modal{
+        margin-top: 100px;
+    }
+    .modal-content{
+        max-height: 60vh;
+    }
 }
 .close-bnt{
     margin-top: 20px;
