@@ -435,3 +435,48 @@ div .rodape{
     border-radius: 10px;
 
 }
+.suc{
+    background-color: rgb(123, 233, 113, 0.7);
+    border: solid black 0.1em;
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+}
+.rodape{
+    margin-top:240px ;
+}
+@media (max-width:305px){
+    .midia-text{
+        font-size: 1.5em;
+
+}
+}
+.tabela{
+    border: solid black 0.1em;
+    border-radius: 7px;
+    margin:0 auto  ;
+    width: 70%;
+    
+    
+    
+}
+.tabela thead th{
+    color: #000000;
+    border: solid rgb(255, 232, 203) 0.1em ;
+    background-color: ;
+}
+.tabela tbody{
+   
+}
+.tabela tr, td{
+    border: solid black 0.1em;
+    text-align: center;
+    padding: 10px;
+
+
+}
+.tabela .cabesa-tabela, th{
+    background-color: #000000;
+    background-color:rgb(255, 232, 203);
+}
