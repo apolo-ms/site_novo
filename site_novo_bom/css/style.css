@@ -433,6 +433,8 @@ div .rodape{
     padding: 5px;
     background-color: #ffe4c4;
     border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+
 
 }
 .suc{
@@ -457,6 +459,7 @@ div .rodape{
     border-radius: 7px;
     margin:0 auto  ;
     width: 70%;
+    margin-top: 50px;
     
     
     
@@ -464,19 +467,35 @@ div .rodape{
 .tabela thead th{
     color: #000000;
     border: solid rgb(255, 232, 203) 0.1em ;
-    background-color: ;
+    
 }
-.tabela tbody{
-   
-}
-.tabela tr, td{
+
+.tabela td{
     border: solid black 0.1em;
     text-align: center;
     padding: 10px;
+    border: solid rgb(255, 232, 203) 0.1em ;
+    
 
 
+}
+.tabela tr{
+    text-align: center;
+    padding: 10px;
+    border: solid rgb(255, 232, 203) 0.1em ;
 }
 .tabela .cabesa-tabela, th{
     background-color: #000000;
     background-color:rgb(255, 232, 203);
+}
+.tabela{
+    overflow-x: scroll;
+}
+#jogo{
+    margin-top: 100px;
+   text-align: center;
+}
+.logo-img{
+    width: 8%;
+   
 }

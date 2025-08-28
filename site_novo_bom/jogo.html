@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>biblioteca de alexandria</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="shortcut icon" href="img/perg.png" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+  <style>
+    /* ===== Estilos do jogo da memória ===== */
+    .tabuleiro { margin: 0 auto; display:grid; grid-template-columns:repeat(4,120px); gap:15px; justify-content:center }
+    .carta { width:120px; height:120px; perspective:1000px; }
+    .carta .inner { position:relative; width:100%; height:100%; transition: transform .52s; transform-style: preserve-3d; border-radius:10px; }
+    .carta.revelada .inner { transform: rotateY(180deg); }
+    .face { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; border-radius:10px; backface-visibility:hidden; font-weight:700; user-select:none; }
+    .front { background:#374151; color:#fff; font-size:40px; }
+    .back { background:#f3f4f6; color:#111827; transform: rotateY(180deg); font-size:16px; padding:8px; text-align:center; }
+    .carta[data-matched="true"] .inner { box-shadow: 0 8px 20px rgba(56,189,248,.12); }
+    
+    /* Contador de tentativas */
+    #tentativas {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      background: rgba(55, 65, 81, 0.9);
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-weight: 600;
+      z-index: 1000;
+    }
+
+    @media (max-width:760px){
+      .tabuleiro { grid-template-columns: repeat(3, 100px) !important; }
+      .carta { width:100px; height:100px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="conteiner">
+      <div class="logo">
+                <a href="index.html">
+                  <img src="../site_novo_bom/img/perg.png" alt="logo pergaminho" class="logo-img">
+                </a>
+            </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">inicio</a></li>
+          <li><a href="index.html#sobre">sobre</a></li>
+          <li><a href="index.html#funcionalidades">funcionalidades</a></li>
+          <li><a href="index.html#objetivo">objetivo</a></li>
+          <li><a href="jogo.html">jogo</a>jogo</li>
+          <li><a href="contato.html#contato">contato</a></li>
+        </ul>    
+      </nav>
+    </div>
+  </header> 
+
+  <!-- Contador fixo -->
+  <div id="tentativas">Tentativas: 0</div>
+
+
+  <main>
+    <!-- ======== Jogo da Memória: Gêneros de Livros ======== -->
+    <section id="jogo">
+      <h2>📚 Jogo da Memória Literária</h2>
+      <p>Encontre os pares de gêneros de livros!</p>
+      <div id="status" style="margin-top:10px;font-weight:700"></div>
+
+      <div class="tabuleiro" id="tabuleiro" style="margin-top:18px;"></div>
+
+      <div id="controles" style="margin-top:18px">
+        <button onclick="iniciar()" style="padding:8px 12px;border-radius:8px;cursor:pointer">Reiniciar Jogo</button>
+      </div>
+    </section>
+  </main>
+
+  <div>
+    <footer class="rodape">2025 - criado por apolo moreno - todos os direitos reservados</footer>
+  </div>
+
+  <script>
+    // Gêneros (pares)
+    const generos = [
+      "Romance","Romance",
+      "Ficção","Ficção",
+      "História","História",
+      "Poesia","Poesia",
+      "Drama","Drama",
+      "Fantasia","Fantasia",
+      "Terror","Terror",
+      "Aventura","Aventura"
+    ];
+
+    const tabuleiro = document.getElementById('tabuleiro');
+    const statusDiv = document.getElementById('status');
+    const tentativasDiv = document.getElementById('tentativas');
+
+    let cartasSelecionadas = [];
+    let paresEncontrados = 0;
+    let tentativas = 0;
+    let busy = false;
+    let totalPares = generos.length / 2;
+
+    function embaralhar(a){
+      for (let i = a.length - 1; i > 0; i--){
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+
+    function iniciar(){
+      tabuleiro.innerHTML = '';
+      cartasSelecionadas = [];
+      paresEncontrados = 0;
+      tentativas = 0;
+      busy = false;
+      statusDiv.textContent = 'Clique nas cartas para revelar. Encontre todos os pares!';
+      tentativasDiv.textContent = 'Tentativas: 0';
+
+      const cartas = embaralhar([...generos]);
+
+      cartas.forEach((genero, i) => {
+        const carta = document.createElement('div');
+        carta.className = 'carta';
+        carta.dataset.genero = genero;
+        carta.dataset.index = i;
+        carta.dataset.matched = 'false';
+
+        const inner = document.createElement('div');
+        inner.className = 'inner';
+
+        const front = document.createElement('div');
+        front.className = 'face front';
+        front.textContent = '📚';
+
+        const back = document.createElement('div');
+        back.className = 'face back';
+        back.textContent = genero;
+
+        inner.appendChild(front);
+        inner.appendChild(back);
+        carta.appendChild(inner);
+
+        carta.addEventListener('click', ()=> virarCarta(carta));
+        tabuleiro.appendChild(carta);
+      });
+    }
+
+    function virarCarta(carta){
+      if (busy) return;
+      if (carta.dataset.matched === 'true') return;
+      if (cartasSelecionadas.includes(carta)) return;
+
+      carta.classList.add('revelada');
+      cartasSelecionadas.push(carta);
+
+      if (cartasSelecionadas.length === 2){
+        busy = true;
+        tentativas++;
+        tentativasDiv.textContent = `Tentativas: ${tentativas}`;
+        setTimeout(verificarPar, 520);
+      }
+    }
+
+    function verificarPar(){
+      const [c1, c2] = cartasSelecionadas;
+      if (!c1 || !c2) { cartasSelecionadas = []; busy = false; return; }
+
+      if (c1.dataset.genero === c2.dataset.genero){
+        c1.dataset.matched = 'true';
+        c2.dataset.matched = 'true';
+        paresEncontrados++;
+        statusDiv.textContent = `✅ Par encontrado! Total: ${paresEncontrados}/${totalPares}`;
+
+        if (paresEncontrados === totalPares){
+          statusDiv.textContent = `🏆 Parabéns! Você encontrou todos os pares em ${tentativas} tentativas!`;
+        }
+        cartasSelecionadas = [];
+        busy = false;
+      } else {
+        statusDiv.textContent = '❌ Não é par — tente novamente.';
+        setTimeout(() => {
+          c1.classList.remove('revelada');
+          c2.classList.remove('revelada');
+          cartasSelecionadas = [];
+          busy = false;
+        }, 800);
+      }
+    }
+
+    iniciar();
+  </script>
+</body>
+</html>
