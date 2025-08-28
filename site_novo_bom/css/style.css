@@ -375,3 +375,63 @@ div .rodape{
 .foto:hover {
     transform: scale(1.05);
 }
+.centro{
+    text-align: center;
+
+}
+ .form-es {
+    background-color:#ffe4c4; ;
+    border-radius: 12px;
+    max-width: 800px;
+    margin: auto;
+    margin-top: 40px;
+    color: #000000;
+  }
+  
+  .form-es{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+  }
+  
+  .form-es input,
+  .form-es select,
+  .form-es textarea {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1.1em;
+    margin-top: 8px;
+  }
+  
+  .form-es input[type="checkbox"],
+  .form-es input[type="radio"] {
+    margin-right: 8px;
+    margin-top: 0;
+  }
+  
+  .form-es label {
+    margin-bottom: 5px;
+  }
+
+  input[type="range"] {
+    accent-color: #000000; 
+  }
+  .form {
+    background-color: #ffe4c4;;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: auto;
+    margin-top: 40px;
+    color: #000000;
+    margin-bottom: 60px;
+  }
+.bnt-contato{
+    padding: 5px;
+    background-color: #ffe4c4;
+    border-radius: 10px;
+
+}
