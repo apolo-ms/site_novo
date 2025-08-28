@@ -499,3 +499,7 @@ div .rodape{
     width: 8%;
    
 }
+.tabela-conteiner{
+  overflow-x: auto; 
+  -webkit-overflow-scrolling: touch; 
+}
